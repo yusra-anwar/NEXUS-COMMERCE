@@ -1,0 +1,16 @@
+# Manual tests
+
+Fill the "Result" column yourself after testing the live site. Do not write results you did not see.
+
+| Test | Result |
+|---|---|
+| Search "lamp" shows only the lamp | TODO |
+| Search "xyz" shows the empty message | TODO |
+| Category filter works | TODO |
+| Sold-out product cannot be added | TODO |
+| Cart quantity + / − / remove, total updates | TODO |
+| Checkout with empty name shows error | TODO |
+| Valid checkout shows order number | TODO |
+| Order appears in Seller dashboard | TODO |
+| Status change stays after refresh | TODO |
+| Works on phone screen | TODO |
