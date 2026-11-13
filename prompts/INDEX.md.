@@ -1,0 +1,21 @@
+# 01 – Storefront
+
+## Feature / problem
+Build the customer side of the shop: product catalog, search, category filter, product detail page and stock indicator. I am a first-semester student who only knows basic Java, so I asked the AI to build it.
+
+## Prompt exactly as used
+(Dictated message, my own words, not edited)
+> no like Like if we did this project, if I did this project, I got the certificate, so I'm on the certificate. And but I don't know the single of the coding. Just I just did in first semester student, I just did the Java basics, like so much basics. So I want you to make it. So I will upload on the link they provided me and got the certificate. This is about the good use of AI. So please make it so beautiful, so interesting, so factable, like the professionalist made, like you made for the professionalist, for the one who run their website online. I want like that type. And also, as the AI is going so much faster, so you had so much knowledge that today's how much colors, how attractive, how attract to people, like that type of I want. Okay, I want, but in a very organized way.
+
+## Context supplied
+- The full assignment PDF (NEXUS-COMMERCE brief) and the organizers' WhatsApp message, pasted into the chat.
+- Requirements from the brief: catalog with image, name, price, availability; search or category filter; product detail view; empty states; responsive layout; no real payments.
+
+## Iteration
+No revised prompt yet. TODO: if I ask for changes (colors, products, text), write each new prompt here.
+
+## Implementation mapping
+- `index.html`: product list `P` (12 products), functions `shop()`, `grid()`, `product()`, `badge()`; CSS grid and responsive styles.
+
+## Verification
+TODO (write only what you really tested). Example: "I typed 'lamp' in search and only the LED Desk Lamp showed. I typed 'xyz' and saw the 'No products match' message. I opened the Gel Pen Box and the button said Sold out."
