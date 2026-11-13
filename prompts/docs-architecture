@@ -1,0 +1,8 @@
+# Architecture
+
+One file, `index.html`, holds the page, styles and JavaScript. There is no server.
+
+- **Data:** product list in code; orders, stock, cart and questions saved in browser `localStorage`.
+- **Pages:** switched by the URL hash (`#shop`, `#p/3`, `#cart`, `#checkout`, `#done/NX-1004`, `#admin`).
+- **Flow:** Shop → Cart → Checkout → order saved → visible in Seller dashboard.
+- **Limit:** data is per browser. It is not shared between users or devices.
