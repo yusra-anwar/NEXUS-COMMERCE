@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nexus Market – Study and desk gear</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Sora:wght@600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F5F8FC;--ink:#0F1B2D;--mut:#5B6B80;--card:#fff;--line:#DDE5F0;--blue:#2F6BFF;--mint:#0E9F75;--amber:#B87500;--red:#D6336C;--r:14px}
+@media(prefers-color-scheme:dark){:root{--bg:#0B1220;--ink:#EAF0FA;--mut:#93A3BA;--card:#131C2E;--line:#243149;--mint:#2BD3A0;--amber:#FFB84D;--red:#FF6B9A}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 'DM Sans',system-ui,sans-serif}
+h1,h2,h3{font-family:Sora,'DM Sans',sans-serif;line-height:1.2;margin:0 0 .5em}
+header{position:sticky;top:0;z-index:5;background:var(--card);border-bottom:1px solid var(--line)}
+.bar{max-width:1100px;margin:auto;padding:12px 16px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.logo{font:800 1.3rem Sora,sans-serif;color:var(--ink);text-decoration:none;margin-right:auto}
+.logo b{color:var(--blue)}
+nav a{color:var(--mut);text-decoration:none;font-weight:500;padding:6px 10px;border-radius:8px}
+nav a.on,nav a:hover{color:var(--blue);background:color-mix(in srgb,var(--blue) 10%,transparent)}
+.wrap{max-width:1100px;margin:auto;padding:24px 16px 60px}
+.hero{background:linear-gradient(135deg,#1B3FBF,#2F6BFF 60%,#12B8D6);color:#fff;border-radius:22px;padding:36px 28px;margin-bottom:26px}
+.hero h1{font-size:clamp(1.7rem,5vw,2.8rem);max-width:15em}
+.hero p{max-width:34em;opacity:.92;margin:0}
+.tools{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+input,select,textarea{font:inherit;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px;width:100%}
+.tools input{flex:1 1 220px;width:auto}.tools select{width:auto}
+input:focus,select:focus,textarea:focus,button:focus-visible,a:focus-visible{outline:3px solid color-mix(in srgb,var(--blue) 45%,transparent);outline-offset:1px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column}
+.tile{height:150px;display:grid;place-items:center;font-size:64px}
+.pad{padding:14px 16px 16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.price{font:800 1.1rem Sora,sans-serif}
+.btn{font:inherit;font-weight:700;border:0;border-radius:10px;padding:10px 16px;background:var(--blue);color:#fff;cursor:pointer;text-decoration:none;display:inline-block;text-align:center}
+.btn:hover{filter:brightness(1.1)}.btn:disabled{opacity:.45;cursor:not-allowed}
+.btn.alt{background:transparent;color:var(--blue);border:1px solid var(--line)}
+.row{display:flex;gap:8px;margin-top:auto}.row .btn{flex:1;padding:9px 8px}
+.badge{font-size:.78rem;font-weight:700;padding:2px 9px;border-radius:99px;display:inline-block;width:fit-content}
+.in{background:color-mix(in srgb,var(--mint) 16%,transparent);color:var(--mint)}
+.low{background:color-mix(in srgb,var(--amber) 18%,transparent);color:var(--amber)}
+.out{background:color-mix(in srgb,var(--red) 16%,transparent);color:var(--red)}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+@media(max-width:720px){.split{grid-template-columns:1fr}}
+.big{height:300px;font-size:120px;border-radius:var(--r)}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px;margin-bottom:20px}
+.line{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
+.line:last-child{border:0}.line .t{flex:1}
+.qty{display:flex;align-items:center;gap:8px}
+.qty button{width:32px;height:32px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;font-size:1.1rem}
+label{display:block;font-weight:500;margin:12px 0 4px}
+.err{color:var(--red);font-size:.85rem;min-height:1.1em}
+.empty{text-align:center;padding:48px 16px;color:var(--mut)}
+.empty .e{font-size:48px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;margin-bottom:22px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px}
+.stat b{display:block;font:800 1.7rem Sora,sans-serif}.stat span{color:var(--mut);font-size:.9rem}
+.scroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:720px}
+th,td{text-align:left;padding:10px;border-bottom:1px solid var(--line);vertical-align:top;font-size:.93rem}
+th{color:var(--mut);font-weight:500}
+td select,td input{padding:6px 8px;font-size:.9rem}
+#toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--ink);color:var(--bg);padding:10px 18px;border-radius:10px;transition:transform .25s;z-index:9}
+#toast.show{transform:translateX(-50%)}
+.muted{color:var(--mut)}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<header><div class="bar">
+  <a class="logo" href="#shop">Nexus<b>Market</b></a>
+  <nav><a href="#shop" data-r="shop">Shop</a><a href="#cart" data-r="cart">Cart (<span id="cc">0</span>)</a><a href="#admin" data-r="admin">Seller dashboard</a></nav>
+</div></header>
+<main class="wrap" id="app"></main>
+<div id="toast" role="status"></div>
+
+<script>
+/* ---------- Data ---------- */
+const P=[
+ {id:1,name:'Ergo Laptop Stand',cat:'Desk',price:3499,stock:14,e:'🖥️',d:'Aluminium stand that lifts your screen to eye level. Folds flat for your bag.'},
+ {id:2,name:'Mechanical Keyboard',cat:'Tech',price:8999,stock:6,e:'⌨️',d:'Tactile switches, compact layout and a USB-C cable you can swap out.'},
+ {id:3,name:'Wireless Mouse',cat:'Tech',price:2499,stock:20,e:'🖱️',d:'Quiet clicks, 12-month battery life and a tiny USB receiver.'},
+ {id:4,name:'Noise-Cancelling Headphones',cat:'Tech',price:12999,stock:3,e:'🎧',d:'Block out the hostel noise. 30 hours of playback per charge.'},
+ {id:5,name:'LED Desk Lamp',cat:'Desk',price:2999,stock:11,e:'💡',d:'Three brightness levels and a warm mode for late-night revision.'},
+ {id:6,name:'Notebook Set (3 pack)',cat:'Study',price:899,stock:40,e:'📓',d:'A5 ruled notebooks with thick paper that does not bleed through.'},
+ {id:7,name:'Gel Pen Box (12)',cat:'Study',price:649,stock:0,e:'🖊️',d:'Smooth black and blue gel pens. Currently sold out.'},
+ {id:8,name:'Everyday Backpack',cat:'Bags',price:4999,stock:9,e:'🎒',d:'Fits a 15.6 inch laptop, with a water-resistant outer layer.'},
+ {id:9,name:'Insulated Bottle',cat:'Daily',price:1799,stock:25,e:'🧴',d:'Keeps drinks cold for 24 hours or hot for 12.'},
+ {id:10,name:'Power Bank 20000 mAh',cat:'Tech',price:5499,stock:2,e:'🔋',d:'Charges a phone about five times. Two USB ports plus USB-C.'},
+ {id:11,name:'Desk Plant Pot',cat:'Desk',price:1299,stock:15,e:'🪴',d:'A small ceramic pot with drainage. Plant not included.'},
+ {id:12,name:'1080p Webcam',cat:'Tech',price:4299,stock:8,e:'📷',d:'Sharp video for online classes, with a built-in microphone.'}
+];
+const STATUS=['New','Processing','Shipped','Delivered','Cancelled'];
+const seed=()=>({
+ next:1004,cart:[],
+ stock:Object.fromEntries(P.map(p=>[p.id,p.stock])),
+ orders:[
+  {id:'NX-1001',date:'2026-11-10',cust:{name:'Ayesha Khan',email:'ayesha.demo@example.com',phone:'0300-0000001',addr:'House 12, Street 4, Wah Cantt'},items:[{id:2,name:'Mechanical Keyboard',qty:1,price:8999}],total:8999,status:'Delivered',note:'Delivered on time.'},
+  {id:'NX-1002',date:'2026-11-11',cust:{name:'Bilal Ahmed',email:'bilal.demo@example.com',phone:'0300-0000002',addr:'Block C, Rawalpindi'},items:[{id:6,name:'Notebook Set (3 pack)',qty:2,price:899},{id:9,name:'Insulated Bottle',qty:1,price:1799}],total:3597,status:'Shipped',note:''},
+  {id:'NX-1003',date:'2026-11-12',cust:{name:'Sana Malik',email:'sana.demo@example.com',phone:'0300-0000003',addr:'Sector F, Islamabad'},items:[{id:5,name:'LED Desk Lamp',qty:1,price:2999}],total:2999,status:'New',note:''}
+ ],
+ inq:[
+  {id:1,name:'Hamza Raza',msg:'Do you offer a warranty on the keyboard?',status:'Open'},
+  {id:2,name:'Mariam Noor',msg:'When will the gel pens be back in stock?',status:'Open'},
+  {id:3,name:'Usman Ali',msg:'Can I change my delivery address?',status:'Resolved'}
+ ]
+});
+let S;try{S=JSON.parse(localStorage.getItem('nexus'))||seed()}catch(e){S=seed()}
+const save=()=>{try{localStorage.setItem('nexus',JSON.stringify(S))}catch(e){}};
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const rs=n=>'Rs '+Number(n).toLocaleString('en-PK');
+const prod=id=>P.find(p=>p.id==id);
+const bg=p=>`background:hsl(${p.id*37%360} 85% 90%)`;
+let q='',cat='All';
+
+function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('show');clearTimeout(toast.t);toast.t=setTimeout(()=>t.classList.remove('show'),1800)}
+function badge(p){const n=S.stock[p.id];return n<=0?'<span class="badge out">Sold out</span>':n<=3?`<span class="badge low">Only ${n} left</span>`:'<span class="badge in">In stock</span>'}
+function cartCount(){return S.cart.reduce((a,l)=>a+l.qty,0)}
+function cartTotal(){return S.cart.reduce((a,l)=>a+l.qty*prod(l.id).price,0)}
+
+/* ---------- Storefront ---------- */
+function shop(){
+ const cats=['All',...new Set(P.map(p=>p.cat))];
+ return `<section class="hero"><h1>Gear that makes studying easier.</h1><p>Keyboards, lamps, backpacks and more, picked for students. Pay on delivery anywhere in Pakistan.</p></section>
+ <div class="tools"><input id="q" type="search" placeholder="Search products" aria-label="Search products" value="${esc(q)}" oninput="q=this.value;$('#grid').innerHTML=grid()">
+ <select aria-label="Category" onchange="cat=this.value;$('#grid').innerHTML=grid()">${cats.map(c=>`<option ${c==cat?'selected':''}>${c}</option>`).join('')}</select></div>
+ <div class="grid" id="grid">${grid()}</div>
+ <div class="panel" style="margin-top:32px;max-width:520px"><h3>Ask the shop a question</h3>
+  <label for="iq">Your name</label><input id="in" maxlength="40"><label for="iq">Your question</label><textarea id="iq" rows="3" maxlength="300"></textarea>
+  <div class="err" id="ie"></div><button class="btn" onclick="sendInq()">Send question</button></div>`;
+}
+function grid(){
+ const list=P.filter(p=>(cat=='All'||p.cat==cat)&&p.name.toLowerCase().includes(q.trim().toLowerCase()));
+ if(!list.length)return `<div class="empty" style="grid-column:1/-1"><div class="e">🔍</div><p>No products match "${esc(q)}". Try another word or choose All.</p></div>`;
+ return list.map(p=>`<div class="card"><a href="#p/${p.id}" class="tile" style="${bg(p)};text-decoration:none" aria-label="View ${esc(p.name)}">${p.e}</a>
+ <div class="pad"><span class="muted">${p.cat}</span><strong>${esc(p.name)}</strong><span class="price">${rs(p.price)}</span>${badge(p)}
+ <div class="row"><a class="btn alt" href="#p/${p.id}">Details</a><button class="btn" ${S.stock[p.id]<=0?'disabled':''} onclick="add(${p.id})">Add to cart</button></div></div></div>`).join('');
+}
+function product(id){
+ const p=prod(id);
+ if(!p)return `<div class="empty"><div class="e">😕</div><h2>Product not found</h2><p>This product does not exist or was removed.</p><a class="btn" href="#shop">Back to shop</a></div>`;
+ return `<a href="#shop" class="muted">← All products</a><div class="split" style="margin-top:14px"><div class="tile big" style="${bg(p)}">${p.e}</div>
+ <div><span class="muted">${p.cat}</span><h1>${esc(p.name)}</h1><p class="price" style="font-size:1.6rem">${rs(p.price)}</p>${badge(p)}<p>${esc(p.d)}</p>
+ <button class="btn" ${S.stock[p.id]<=0?'disabled':''} onclick="add(${p.id})">${S.stock[p.id]<=0?'Sold out':'Add to cart'}</button></div></div>`;
+}
+function add(id){
+ const have=(S.cart.find(l=>l.id==id)||{qty:0}).qty;
+ if(have+1>S.stock[id])return toast('No more stock for this item');
+ const l=S.cart.find(l=>l.id==id);l?l.qty++:S.cart.push({id,qty:1});
+ save();upd();toast('Added to cart');
+}
+function setQty(id,d){
+ const l=S.cart.find(l=>l.id==id);if(!l)return;
+ if(d>0&&l.qty+1>S.stock[id])return toast('Only '+S.stock[id]+' in stock');
+ l.qty+=d;if(l.qty<=0)S.cart=S.cart.filter(x=>x.id!=id);
+ save();route();
+}
+function cart(){
+ if(!S.cart.length)return `<div class="empty"><div class="e">🛒</div><h2>Your cart is empty</h2><p>Add something you like from the shop.</p><a class="btn" href="#shop">Browse products</a></div>`;
+ return `<h1>Your cart</h1><div class="panel">${S.cart.map(l=>{const p=prod(l.id);return `<div class="line"><span style="font-size:32px">${p.e}</span><div class="t"><strong>${esc(p.name)}</strong><div class="muted">${rs(p.price)} each</div></div>
+ <div class="qty"><button aria-label="Less" onclick="setQty(${p.id},-1)">−</button><b>${l.qty}</b><button aria-label="More" onclick="setQty(${p.id},1)">+</button></div>
+ <b style="min-width:90px;text-align:right">${rs(p.price*l.qty)}</b><button class="btn alt" onclick="setQty(${p.id},-99)">Remove</button></div>`}).join('')}
+ <div class="line"><div class="t"><strong>Total</strong></div><b class="price">${rs(cartTotal())}</b></div></div>
+ <a class="btn" href="#checkout">Go to checkout</a>`;
+}
+function checkout(){
+ if(!S.cart.length)return cart();
+ return `<h1>Checkout</h1><div class="split"><div class="panel"><p class="muted">Demo checkout. Please do not enter real card details. Payment is cash on delivery.</p>
+ <label for="n">Full name</label><input id="n" maxlength="50" autocomplete="name"><label for="m">Email</label><input id="m" type="email" autocomplete="email">
+ <label for="ph">Phone</label><input id="ph" type="tel" placeholder="0300-1234567" autocomplete="tel"><label for="a">Delivery address</label><textarea id="a" rows="3" maxlength="150"></textarea>
+ <div class="err" id="ce" role="alert"></div><button class="btn" onclick="place()">Place order</button></div>
+ <div class="panel"><h3>Order summary</h3>${S.cart.map(l=>`<div class="line"><div class="t">${esc(prod(l.id).name)} × ${l.qty}</div><b>${rs(prod(l.id).price*l.qty)}</b></div>`).join('')}
+ <div class="line"><div class="t"><strong>Total</strong></div><b>${rs(cartTotal())}</b></div></div></div>`;
+}
+function place(){
+ const v=id=>$('#'+id).value.trim(),n=v('n'),m=v('m'),ph=v('ph'),a=v('a'),e=$('#ce');
+ if(n.length<2)return e.textContent='Enter your full name.';
+ if(!/^\S+@\S+\.\S+$/.test(m))return e.textContent='Enter a valid email, like name@example.com.';
+ if(!/^[0-9+\- ]{10,15}$/.test(ph))return e.textContent='Enter a valid phone number (10 to 15 digits).';
+ if(a.length<8)return e.textContent='Enter your full delivery address.';
+ for(const l of S.cart){if(S.stock[l.id]<l.qty)return e.textContent=`Sorry, only ${S.stock[l.id]} of "${prod(l.id).name}" left. Update your cart.`}
+ const id='NX-'+S.next++;
+ S.orders.unshift({id,date:new Date().toISOString().slice(0,10),cust:{name:n,email:m,phone:ph,addr:a},
+  items:S.cart.map(l=>({id:l.id,name:prod(l.id).name,qty:l.qty,price:prod(l.id).price})),total:cartTotal(),status:'New',note:''});
+ S.cart.forEach(l=>S.stock[l.id]-=l.qty);S.cart=[];save();location.hash='done/'+id;
+}
+function done(id){
+ const o=S.orders.find(o=>o.id==id);
+ if(!o)return `<div class="empty"><div class="e">😕</div><h2>Order not found</h2><a class="btn" href="#shop">Back to shop</a></div>`;
+ return `<div class="panel" style="max-width:560px;margin:auto;text-align:center"><div style="font-size:56px">✅</div><h1>Order placed</h1><p>Thank you, ${esc(o.cust.name)}. Your order number is <b>${o.id}</b>.</p>
+ <p class="muted">Total ${rs(o.total)}, pay on delivery. The seller can now see it in the dashboard.</p><a class="btn" href="#shop">Keep shopping</a> <a class="btn alt" href="#admin">View in dashboard</a></div>`;
+}
+function sendInq(){
+ const n=$('#in').value.trim(),m=$('#iq').value.trim();
+ if(n.length<2||m.length<5)return $('#ie').textContent='Enter your name and a question of at least 5 characters.';
+ S.inq.unshift({id:Date.now(),name:n,msg:m,status:'Open'});save();toast('Question sent. The seller will reply soon.');$('#in').value=$('#iq').value='';$('#ie').textContent='';
+}
+
+/* ---------- Seller dashboard ---------- */
+function admin(){
+ const rev=S.orders.filter(o=>o.status!='Cancelled').reduce((a,o)=>a+o.total,0);
+ const open=S.inq.filter(i=>i.status=='Open').length,low=P.filter(p=>S.stock[p.id]<=3).length;
+ const cs={};S.orders.forEach(o=>{const c=cs[o.cust.email]||(cs[o.cust.email]={...o.cust,n:0,sum:0});c.n++;c.sum+=o.total});
+ return `<h1>Seller dashboard</h1><p class="muted">Demo data only. Everything is stored in this browser.</p>
+ <div class="stats"><div class="stat"><b>${S.orders.length}</b><span>Total orders</span></div><div class="stat"><b>${rs(rev)}</b><span>Revenue (not cancelled)</span></div>
+ <div class="stat"><b>${open}</b><span>Open questions</span></div><div class="stat"><b>${low}</b><span>Products low or sold out</span></div></div>
+ <div class="panel"><h2>Orders</h2>${S.orders.length?`<div class="scroll"><table><tr><th>Order</th><th>Customer</th><th>Items</th><th>Total</th><th>Status</th><th>Notes</th></tr>
+ ${S.orders.map(o=>`<tr><td><b>${o.id}</b><br><span class="muted">${o.date}</span></td><td>${esc(o.cust.name)}<br><span class="muted">${esc(o.cust.email)}</span></td>
+ <td>${o.items.map(i=>`${esc(i.name)} × ${i.qty}`).join('<br>')}</td><td>${rs(o.total)}</td>
+ <td><select aria-label="Status of ${o.id}" onchange="setS('${o.id}',this.value)">${STATUS.map(s=>`<option ${s==o.status?'selected':''}>${s}</option>`).join('')}</select></td>
+ <td><input aria-label="Note for ${o.id}" value="${esc(o.note)}" placeholder="Add note" maxlength="120" onchange="setN('${o.id}',this.value)"></td></tr>`).join('')}</table></div>`:'<div class="empty">No orders yet. Place one from the shop.</div>'}</div>
+ <div class="panel"><h2>Customers</h2>${Object.values(cs).length?`<div class="scroll"><table><tr><th>Name</th><th>Email</th><th>Phone</th><th>Orders</th><th>Spent</th></tr>
+ ${Object.values(cs).map(c=>`<tr><td>${esc(c.name)}</td><td>${esc(c.email)}</td><td>${esc(c.phone)}</td><td>${c.n}</td><td>${rs(c.sum)}</td></tr>`).join('')}</table></div>`:'<div class="empty">No customers yet.</div>'}</div>
+ <div class="panel"><h2>Customer questions</h2>${S.inq.length?S.inq.map(i=>`<div class="line"><div class="t"><b>${esc(i.name)}</b><div class="muted">${esc(i.msg)}</div></div>
+ <button class="btn alt" onclick="togInq(${i.id})">${i.status=='Open'?'Mark resolved':'Reopen'}</button><span class="badge ${i.status=='Open'?'low':'in'}">${i.status}</span></div>`).join(''):'<div class="empty">No questions yet.</div>'}</div>
+ <button class="btn alt" onclick="if(confirm('Reset all demo data?')){S=seed();save();route()}">Reset demo data</button>`;
+}
+function setS(id,v){S.orders.find(o=>o.id==id).status=v;save();toast('Status updated');route()}
+function setN(id,v){S.orders.find(o=>o.id==id).note=v.trim();save();toast('Note saved')}
+function togInq(id){const i=S.inq.find(i=>i.id==id);i.status=i.status=='Open'?'Resolved':'Open';save();route()}
+
+/* ---------- Router ---------- */
+function upd(){$('#cc').textContent=cartCount()}
+function route(){
+ const [a,b]=(location.hash.slice(1)||'shop').split('/');
+ const views={shop,p:()=>product(b),cart,checkout,done:()=>done(b),admin};
+ $('#app').innerHTML=(views[a]||shop)();
+ document.querySelectorAll('nav a').forEach(x=>x.classList.toggle('on',x.dataset.r==a));
+ upd();
+}
+window.addEventListener('hashchange',()=>{route();scrollTo(0,0)});
+route();
+</script>
+</body>
+</html>
