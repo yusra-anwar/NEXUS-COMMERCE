@@ -1,0 +1,21 @@
+# 02 – Cart and simulated checkout
+
+## Feature / problem
+Let a customer add products, change quantities, see a total, and place a fake order that the seller can see. No real card details.
+
+## Prompt exactly as used
+Same request as in [01-storefront.md](01-storefront.md). The AI built the whole project from that one prompt plus the assignment brief. TODO: add any separate prompt you send about the cart.
+
+## Context supplied
+Assignment brief rules: add/remove/update quantity, visible total, simulated checkout, order confirmation, handle invalid form input and checkout errors, do not collect card numbers.
+
+## Iteration
+No revised prompt yet. TODO.
+
+## Implementation mapping
+- `index.html`: `add()`, `setQty()`, `cart()`, `checkout()`, `place()`, `done()`. Data saved in browser `localStorage` (key `nexus`).
+- Checks in `place()`: name, email, phone, address, and stock left for each item.
+
+## Verification
+TODO (your own test). Example: "I added 2 items, changed one quantity to 2, total updated. I left the name empty and saw an error. I placed the order and saw order number NX-1004."
+Known limitation: data lives only in this browser; there is no real backend.
