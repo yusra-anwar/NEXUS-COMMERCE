@@ -1,0 +1,21 @@
+# 03 – Seller dashboard (mini CRM)
+
+## Feature / problem
+The seller needs one place to see orders, customers and customer questions, and to update order progress.
+
+## Prompt exactly as used
+Same request as in [01-storefront.md](01-storefront.md). TODO: add any separate prompt about the dashboard.
+
+## Context supplied
+Brief rules: order list with ID, items, customer reference, total, status; status update or notes; one summary metric; fictional demo records only.
+
+## Iteration
+No revised prompt yet. TODO.
+
+## Implementation mapping
+- `index.html`: `admin()`, `setS()` (status), `setN()` (notes), `togInq()` (question status), `sendInq()` (customer question form on the shop page).
+- Demo customers and orders are made up (example.com emails).
+- Summary numbers: total orders, revenue, open questions, low-stock products.
+
+## Verification
+TODO (your own test). Example: "I placed an order in the shop, opened Seller dashboard, found it with status New, changed it to Shipped, refreshed, and it stayed Shipped."
