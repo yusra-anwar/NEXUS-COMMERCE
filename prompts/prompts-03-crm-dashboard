@@ -18,4 +18,4 @@ No revised prompt yet. TODO.
 - Summary numbers: total orders, revenue, open questions, low-stock products.
 
 ## Verification
-TODO (your own test). Example: "I placed an order in the shop, opened Seller dashboard, found it with status New, changed it to Shipped, refreshed, and it stayed Shipped."
+I opened the Seller dashboard and found my new order at the top of the Orders table. I changed its status to Shipped, refreshed the page, and it stayed Shipped. The summary boxes showed the order count and revenue.
