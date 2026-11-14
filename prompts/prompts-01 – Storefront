@@ -19,3 +19,5 @@ No revised prompt yet. TODO: if I ask for changes (colors, products, text), writ
 
 ## Verification
 I searched for "lamp" and only the LED Desk Lamp showed. I searched for "xyz" and saw the "No products match" message. The Gel Pen Box showed Sold out and its button could not be used. Limitation: the product list is fixed in the code.
+
+- Context engineering example: the AI worked from the assignment brief and a fixed list of 12 products with names, prices, categories and stock. I checked the live site and it shows the same 12 products, and the sold-out Gel Pen Box cannot be added to the cart.
