@@ -18,4 +18,4 @@ No revised prompt yet. TODO: if I ask for changes (colors, products, text), writ
 - `index.html`: product list `P` (12 products), functions `shop()`, `grid()`, `product()`, `badge()`; CSS grid and responsive styles.
 
 ## Verification
-TODO (write only what you really tested). Example: "I typed 'lamp' in search and only the LED Desk Lamp showed. I typed 'xyz' and saw the 'No products match' message. I opened the Gel Pen Box and the button said Sold out."
+I searched for "lamp" and only the LED Desk Lamp showed. I searched for "xyz" and saw the "No products match" message. The Gel Pen Box showed Sold out and its button could not be used. Limitation: the product list is fixed in the code.
