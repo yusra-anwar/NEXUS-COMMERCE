@@ -29,3 +29,24 @@ Add the live link here only after it works. If it fails, write what you tried in
 
 ## Prompts
 See the `prompts/` folder. Only record prompts you really used.
+
+
+## Live demo
+https://courageous-sorbet-188acd.netlify.app
+
+## Screenshots
+
+Home page
+![Home](docs/screenshots/home.png)
+
+Cart
+![Cart](docs/screenshots/cart.png)
+
+Order confirmation
+![Order](docs/screenshots/order.png)
+
+Seller dashboard
+![Dashboard](docs/screenshots/dashboard.png)
+
+Mobile view
+![Mobile](docs/screenshots/mobile.png)
