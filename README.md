@@ -37,16 +37,16 @@ https://courageous-sorbet-188acd.netlify.app
 ## Screenshots
 
 Home page
-![Home](prompts/docs/Screenshot%202026-11-14%20162540.png)
+![Home](prompts/docs/PUT-HOME-FILE-NAME-HERE.png)
 
 Cart
-![Cart](docs/screenshots/cart.png)
+![Cart](prompts/docs/Screenshot%202026-11-14%20162705.png)
 
 Order confirmation
-![Order](docs/screenshots/order.png)
+![Order confirmation](prompts/docs/Screenshot%202026-11-14%20165606.png)
 
 Seller dashboard
-![Dashboard](docs/screenshots/dashboard.png)
+![Dashboard](prompts/docs/Screenshot%202026-11-14%20163225.png)
 
 Mobile view
-![Mobile](docs/screenshots/mobile.png)
+![Mobile](prompts/docs/Screenshot%202026-11-14%20164346.png)
