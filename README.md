@@ -37,7 +37,7 @@ https://courageous-sorbet-188acd.netlify.app
 ## Screenshots
 
 Home page
-![Home](prompts/docs/PUT-HOME-FILE-NAME-HERE.png)
+![Home](prompts/docs/Screenshot%202026-11-14%20162540.png)
 
 Cart
 ![Cart](prompts/docs/Screenshot%202026-11-14%20162705.png)
