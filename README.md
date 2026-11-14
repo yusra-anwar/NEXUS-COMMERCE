@@ -25,8 +25,7 @@ Use "Reset demo data" in the dashboard to start again.
 
 ## Deployment
 Drag this folder onto https://app.netlify.com/drop, or import the GitHub repo into Vercel.
-Add the live link here only after it works. If it fails, write what you tried in `docs/deployment.md`.
-
+The live link is in the Live demo section below.
 ## Prompts
 See the `prompts/` folder. Only record prompts you really used.
 
