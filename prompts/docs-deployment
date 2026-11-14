@@ -1,7 +1,7 @@
 # Deployment
 
 - Platform: Netlify (drag and drop)
-- Live link: TODO (paste the real link, or delete this line if it failed)
-- Steps taken: TODO
-- Problems or errors: TODO
-- Run locally: open `index.html` in a browser.
+- Live link: https://courageous-sorbet-188acd.netlify.app
+- Steps taken: I put index.html in a folder and dragged it onto Netlify Drop. It deployed in about 30 seconds.
+- Problems or errors: None
+- Run locally: open index.html in a browser.
