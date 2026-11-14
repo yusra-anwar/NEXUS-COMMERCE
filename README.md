@@ -27,7 +27,7 @@ Use "Reset demo data" in the dashboard to start again.
 Drag this folder onto https://app.netlify.com/drop, or import the GitHub repo into Vercel.
 The live link is in the Live demo section below.
 ## Prompts
-See the `prompts/` folder. Only record prompts you really used.
+The prompt logs are in the `prompts` folder, one file for each part of the website.
 
 
 ## Live demo
